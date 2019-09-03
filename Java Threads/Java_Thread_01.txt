@@ -6,17 +6,17 @@ public class Main {
         Hi hi=new Hi();
         Hello hello = new Hello();
 
-        hi.start();
+        hi.start();  */**** always start() run only run method   ******/
         hello.start();
     }
 
 }
 
-class Hi extends Thread{
-    public void run(){
+class Hi extends Thread{     */**** extend java Thread class  ******/
+    public void run(){   */**** override the run method ******/
         for(int i=0;i<5;i++){
             System.out.println("Hi...");
-            try {Thread.sleep(500); } catch (Exception e){}
+            try {Thread.sleep(500); } catch (Exception e){} */**** suspend the thread ******/
         }
     }
 }
