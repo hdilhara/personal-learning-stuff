@@ -1,0 +1,22 @@
+@Controller
+public class HomeController {
+	
+	@RequestMapping("/home")
+	public ModelAndView homeRequest(@RequestParam("name") String myName)//in the GET request we should pass name parameter
+	{															
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("nameKey",myName);//(key,value)
+		mv.setViewName("home");
+		return mv;
+		
+	}
+}
+
+
+/*****jsp file******/
+<html>
+<head></head>
+<body>
+	Welcome ${nameKey}
+</body>
+</html>
