@@ -1,0 +1,34 @@
+security:
+  oauth2:
+   client:
+    client-id: mobile
+    client-secret: pin
+    user-authorization-uri: http://localhost:9191/oauth/authorize
+    access-token-uri: http://localhost:9191/oauth/token
+  resource:
+   token-info-uri: http://localhost:9191/oauth/check-token
+server:
+ serverlet: 
+  session: 
+   cookie: kispass
+   
+   
+   /****************** uicontroller config ******************/
+
+
+@Controller
+@EnableOAuth2Sso
+public class UIController extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        
+        http.authorizeRequests()
+                .antMatchers("/")
+                .permitAll()
+                .anyRequest()
+                .authenticated();
+    }
+
+    /********Other codes********/
+}
