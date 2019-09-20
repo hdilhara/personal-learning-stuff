@@ -1,0 +1,1 @@
+insert into user_record values(001,'hdilhara@gmail.com','Thilina');
