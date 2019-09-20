@@ -1,0 +1,18 @@
+https://www.w3.org/TR/html-json-forms/
+
+
+<form enctype='application/json'>
+  <input name='pet[species]' value='Dahut'>
+  <input name='pet[name]' value='Hypatia'>
+  <input name='kids[1]' value='Thelma'>
+  <input name='kids[0]' value='Ashley'>
+</form>
+
+// produces
+{
+    "pet":  {
+        "species":  "Dahut"
+    ,   "name":     "Hypatia"
+    }
+,   "kids":   ["Ashley", "Thelma"]
+}
