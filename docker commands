@@ -1,0 +1,38 @@
+To show only running containers use the given command:
+
+docker ps
+To show all containers use the given command:
+
+$docker ps -a
+/***************************************/
+
+delete container
+
+$sudo docker container rm cc3f2ff51cab cd20b396a061
+/**************************************/
+
+delete a docker image
+$sudo docker images
+$sudo docker image rm ff2267a87f39 ff2fd34343
+
+when have erro ==>> Error response from daemon: conflict: unable to delete ff2267a87f39 (must be forced) - image is being used by stopped container a9c2b6b22a85
+
+//remove all unsued containers 
+$sudo docker system prune
+
+$sudo docker images
+$sudo docker image rm ff2267a87f39 ff2fd34343
+
+/*****************************************/
+//Dockerfile
+FROM openjdk:8
+ADD target/jar-spring-boot.jar jar-spring-boot.jar      //directory where have jar file and directory where should have jar in the container
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","jar-spring-boot.jar"]
+
+//create docker image
+$sudo docker build -f Dockerfile -t spring-docker .  //make a image from a Dockerfile  "." mean Dockerfile located in current directory
+
+//run docker image
+$ docker run -p 8080:8080 spring-docker  //port from our machine  ,port for docker
+
