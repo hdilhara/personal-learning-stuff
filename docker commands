@@ -36,3 +36,10 @@ $sudo docker build -f Dockerfile -t spring-docker .  //make a image from a Docke
 //run docker image
 $ docker run -p 8080:8080 spring-docker  //port from our machine  ,port for docker
 
+/*******************************/
+to change jar name
+
+<build>
+  <finalname>finalName</finalname>
+</build>
+
