@@ -1,9 +1,7 @@
 To show only running containers use the given command:
-
-docker ps
+$ docker ps
 To show all containers use the given command:
-
-$docker ps -a
+$ docker ps -a
 /***************************************/
 
 delete container
@@ -43,3 +41,8 @@ to change jar name
   <finalname>finalName</finalname>
 </build>
 
+/*******************************/
+log inside the container-execute
+$ sudo docker exec -it 273135ef1c87 bash //container image id
+now if you are in mysql container you can start mysql by
+$ mysql -u root -p
