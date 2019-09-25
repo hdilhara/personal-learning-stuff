@@ -1,3 +1,7 @@
+doccker version 
+$sudo docker --version
+$sudo docker run hello-world
+/****************************************/
 To show only running containers use the given command:
 $ docker ps
 To show all containers use the given command:
@@ -46,3 +50,5 @@ log inside the container-execute
 $ sudo docker exec -it 273135ef1c87 bash //container image id
 now if you are in mysql container you can start mysql by
 $ mysql -u root -p
+
+/*******************************/
