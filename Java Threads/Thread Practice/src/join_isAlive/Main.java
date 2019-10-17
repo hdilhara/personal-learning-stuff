@@ -3,7 +3,7 @@ package join_isAlive;
 public class Main {
 
     public static void main(String[] args) {
-        Thread t1 =new Thread(()->{
+        Thread t1 =new Thread(()->{         /**Thread t1 =new Thread(new Runnable(){});**//**Passing Runnble Object**/
             for(int i=0; i<5;i++)
             System.out.println("Hi....");
         });
@@ -18,7 +18,7 @@ public class Main {
         System.out.println("This is main method!");
         t2.start();
 
-
+        /** .join() is wait untill that thread is finished  to run next line**/
         try{
             t1.join();
             System.out.println("t1 is Aliva ->>>"+t1.isAlive());
