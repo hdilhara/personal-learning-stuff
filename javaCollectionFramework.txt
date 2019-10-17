@@ -1,0 +1,16 @@
+public boolean add(E e)
+public boolean addAll(Collection<? extends E> c)
+public boolean remove(Object element)
+public boolean removeAll(Collection<?> c)-->>	It is used to delete all the elements of the specified collection from the invoking collection.
+
+
+public int size()
+public void clear()-It removes the total number of elements from the collection.
+public boolean contains(Object element)-It is used to search an element.
+public Iterator iterator()-It returns an iterator.
+public Object[] toArray()-It converts collection into array.
+public boolean isEmpty()-It returns a possibly parallel Stream with the collection as its source.
+
+default Stream<E> stream()-It returns a sequential Stream with the collection as its source.
+public boolean equals(Object element)-It matches two collections.
+public int hashCode()-	It returns the hash code number of the collection.

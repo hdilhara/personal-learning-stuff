@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Thread Practice/Hello.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Thread Practice/Hello.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Thread Practice/Hi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Thread Practice/Hi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/join_isAlive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/join_isAlive/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,20 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.bubleSort">
-    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lamdaExpressions.Main" />
-      <module name="Thread Practice" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lamdaExpressions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.RevercedArray">
     <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="join_isAlive.Main" />
       <module name="Thread Practice" />
@@ -80,6 +65,13 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Thread Practice" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RevercedArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RevercedArray" />
       <module name="Thread Practice" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RevercedArray" />
         <item itemvalue="Application.bubleSort" />
         <item itemvalue="Application.SynchronizeCommand" />
         <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (2)" />
       </list>
     </recent_temporary>
   </component>
