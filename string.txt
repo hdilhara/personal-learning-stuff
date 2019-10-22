@@ -1,0 +1,30 @@
+public class StringTest {
+
+    public static void main(String[] args) {
+        String[] strArr=new String[]{"AAA_01","BAE_25","CAD_95","MNB_001"};
+        int[] num=new int[strArr.length];
+
+        int count=0;
+        for (String s:strArr){
+            boolean b=false;
+            String no=new String();
+            for(int i=0;i<s.length();i++){
+                if(s.charAt(i)=='_'){
+                    b=true;
+                }
+                else if(b==true){
+                    no+=s.charAt(i);
+                }
+            }
+            num[count++]=Integer.parseInt(no);
+        }
+
+    for(int i:num)
+        System.out.println(i);
+
+
+
+
+    }
+}
+
