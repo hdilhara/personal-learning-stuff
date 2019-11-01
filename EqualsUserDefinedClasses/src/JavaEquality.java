@@ -18,7 +18,7 @@ public class JavaEquality {
 
 
         String s1="Thilina";
-        String s2="Thilina  ";
+        String s2="Thilina";
 
         Object o1="sdfdsf";
         Object o2="sdfdsf";
