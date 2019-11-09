@@ -1,0 +1,133 @@
+Write a query to display the names (first_name, last_name) and salary for all employees whose salary is not in the range $10,000 through $15,000
+mysql> select FIRST_NAME,LAST_NAME,SALARY from employees where SALARY not between 10000 and 15000 limit 3;
++------------+-----------+----------+
+| FIRST_NAME | LAST_NAME | SALARY   |
++------------+-----------+----------+
+| Steven     | King      | 24000.00 |
+| Neena      | Kochhar   | 17000.00 |
+| Lex        | De Haan   | 17000.00 |
++------------+-----------+----------+
+3 rows in set (0.00 sec)
+
+Write a query to display the name (first_name, last_name) and department ID of all employees in departments 30 or 100 in ascending order
+mysql> select concat(FIRST_NAME,' ',LAST_NAME) as NAME,DEPARTMENT_ID from employees where DEPARTMENT_ID=100 or DEPARTMENT_ID=30 order by DEPARTMENT_ID limit 3 ;
+mysql> select concat(FIRST_NAME,' ',LAST_NAME) as NAME,DEPARTMENT_ID from employees where DEPARTMENT_ID in (30,100) order by DEPARTMENT_ID limit 3 ;
++----------------+---------------+
+| NAME           | DEPARTMENT_ID |
++----------------+---------------+
+| Den Raphaely   |            30 |
+| Alexander Khoo |            30 |
+| Shelli Baida   |            30 |
++----------------+---------------+
+3 rows in set (0.00 sec)
+
+Write a query to display the name (first_name, last_name) and salary for all employees whose salary is not in the range $10,000 through $15,000 and are in department 30 or 100.
+SELECT first_name, last_name, salary, department_id
+FROM employees
+WHERE salary NOT BETWEEN 10000 AND 15000 
+AND department_id IN (30, 100);
+
+mysql> select a.* from ( select FIRST_NAME,LAST_NAME,SALARY,DEPARTMENT_ID from employees where SALARY not between 10000 and 15000)a where DEPARTMENT_ID in (30,100) limit 3;
++------------+-----------+---------+---------------+
+| FIRST_NAME | LAST_NAME | SALARY  | DEPARTMENT_ID |
++------------+-----------+---------+---------------+
+| Alexander  | Khoo      | 3100.00 |            30 |
+| Shelli     | Baida     | 2900.00 |            30 |
+| Sigal      | Tobias    | 2800.00 |            30 |
++------------+-----------+---------+---------------+
+3 rows in set (0.00 sec)
+
+Write a query to display the name (first_name, last_name) and hire date for all employees who were hired in 1987
+mysql> select FIRST_NAME,LAST_NAME,HIRE_DATE from employees where HIRE_DATE like '1987%' limit 3;
++------------+-----------+------------+
+| FIRST_NAME | LAST_NAME | HIRE_DATE  |
++------------+-----------+------------+
+| Steven     | King      | 1987-06-17 |
+| Neena      | Kochhar   | 1987-06-18 |
+| Lex        | De Haan   | 1987-06-19 |
++------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+Write a query to display the first_name of all employees who have both "b" and "c" in their first name.
+mysql> select FIRST_NAME from employees where FIRST_NAME like '%b%' and FIRST_NAME like '%c%';
++------------+
+| FIRST_NAME |
++------------+
+| Bruce      |
++------------+
+1 row in set (0.00 sec)
+
+Write a query to display the last name, job, and salary for all employees whose job is that of a Programmer or a Shipping Clerk, and salary is not equal to $4,500, $10,000, or $15,000.
+mysql> select LAST_NAME,JOB_ID,SALARY from employees where (JOB_ID like '%PROG' or  JOB_ID like '%CLERK') and SALARY not in(4500,10000,15000) limit 7;
++-----------+----------+---------+
+| LAST_NAME | JOB_ID   | SALARY  |
++-----------+----------+---------+
+| Hunold    | IT_PROG  | 9000.00 |
+| Ernst     | IT_PROG  | 6000.00 |
+| Austin    | IT_PROG  | 4800.00 |
+| Pataballa | IT_PROG  | 4800.00 |
+| Lorentz   | IT_PROG  | 4200.00 |
+| Khoo      | PU_CLERK | 3100.00 |
+| Baida     | PU_CLERK | 2900.00 |
++-----------+----------+---------+
+
+ Write a query to display the last name of employees whose names have exactly 6 characters
+mysql> select LAST_NAME from employees where LAST_NAME like '______' limit 7;
++-----------+
+| LAST_NAME |
++-----------+
+| Austin    |
+| Bissot    |
+| Cabrio    |
+| Davies    |
+| Faviet    |
+| Feeney    |
+| Fleaur    |
++-----------+
+
+ Write a query to display the last name of employees having 'e' as the third character
+mysql> select LAST_NAME from employees where LAST_NAME like '__e%' limit 7;
++-----------+
+| LAST_NAME |
++-----------+
+| Abel      |
+| Baer      |
+| Chen      |
+| Everett   |
+| Feeney    |
+| Fleaur    |
+| Gee       |
++-----------+
+7 rows in set (0.00 sec)
+
+Write a query to display the jobs/designations available in the employees table
+mysql> select DISTINCT(JOB_ID) from employees limit 4;
++------------+
+| JOB_ID     |
++------------+
+| AC_ACCOUNT |
+| AC_MGR     |
+| AD_ASST    |
+| AD_PRES    |
++------------+
+4 rows in set (0.00 sec)
+
+Write a query to display the name (first_name, last_name), salary and PF (15% of salary) of all employees.
+mysql> select concat(FIRST_NAME,' ',LAST_NAME) as NAME,SALARY,SALARY * 0.15 as PF from employees  limit 3;
++---------------+----------+-----------+
+| NAME          | SALARY   | PF        |
++---------------+----------+-----------+
+| Steven King   | 24000.00 | 3600.0000 |
+| Neena Kochhar | 17000.00 | 2550.0000 |
+| Lex De Haan   | 17000.00 | 2550.0000 |
++---------------+----------+-----------+
+
+Write a query to select all records from employees where last name in 'JONES', 'BLAKE', 'SCOTT', 'KING' and 'FORD
+mysql> select * from employees where LAST_NAME in('BLAKE', 'SCOTT', 'KING','FORD') limit 3;
++-------------+------------+-----------+-------+--------------------+------------+---------+----------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL | PHONE_NUMBER       | HIRE_DATE  | JOB_ID  | SALARY   | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+-------+--------------------+------------+---------+----------+----------------+------------+---------------+
+|         156 | Janette    | King      | JKING | 011.44.1345.429268 | 1987-08-12 | SA_REP  | 10000.00 |           0.35 |        146 |            80 |
+|         100 | Steven     | King      | SKING | 515.123.4567       | 1987-06-17 | AD_PRES | 24000.00 |           0.00 |          0 |            90 |
++-------------+------------+-----------+-------+--------------------+------------+---------+----------+----------------+------------+---------------+
+2 rows in set (0.00 sec)
