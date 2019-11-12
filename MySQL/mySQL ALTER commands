@@ -1,0 +1,32 @@
+
+/**get key names**/
+mysql>select CONSTRAINT_NAME
+from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+where TABLE_NAME='student'
++-----------------+
+| CONSTRAINT_NAME |
++-----------------+
+| PRIMARY         |
+| student_ibfk_1  |
++-----------------+
+
+
+mysql>alter table student
+add constraint fk_name
+FOREIGN KEY (dID) references department (dID);
+
+mysql>alter table student 
+drop FOREIGN KEY fk_name;
+
+mysql> alter table test_tbl add PRIMARY KEY(col1,col2);
+
+mysql> alter table student rename to students;
+
+mysql> alter table student add newCol varchar(255) NOT NULL;
+
+mysql> alter table student drop column newCol;
+
+mysql> alter table student modify sID int;
+mysql> alter table student modify sID int NOT NULL AUTO_INCREMENT;
+
+mysql> alter table student add PRIMARY KEY (sName,sID,dID);     /**Composite PK**/
