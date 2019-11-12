@@ -1,0 +1,92 @@
+Write a query to list the number of jobs available in the employees table.
+mysql> select count(Distinct JOB_ID) from employees;
++------------------------+
+| count(Distinct JOB_ID) |
++------------------------+
+|                     19 |
++------------------------+
+
+Write a query to get the total salaries payable to employees
+mysql> select sum(SALARY) from employees;
++-------------+
+| sum(SALARY) |
++-------------+
+|   691400.00 |
++-------------+
+
+ Write a query to get the minimum salary from employees table.
+ mysql> select min(SALARY) from employees;
++-------------+
+| min(SALARY) |
++-------------+
+|     2100.00 |
++-------------+
+
+Write a query to get the maximum salary of an employee working as a Programmer.
+mysql> select max(SALARY) from employees where JOB_ID like '%PROG%' ;
++-------------+
+| max(SALARY) |
++-------------+
+|     9000.00 |
++-------------+
+
+Write a query to get the average salary and number of employees working the department 90.
+mysql> select avg(SALARY) from employees where DEPARTMENT_ID=90;
++--------------+
+| avg(SALARY)  |
++--------------+
+| 19333.333333 |
++--------------+
+
+ Write a query to get the highest, lowest, sum, and average salary of all employees. 
+ mysql> select max(SALARY),min(SALARY),sum(SALARY),avg(SALARY) from employees ;
++-------------+-------------+-------------+-------------+
+| max(SALARY) | min(SALARY) | sum(SALARY) | avg(SALARY) |
++-------------+-------------+-------------+-------------+
+|    24000.00 |     2100.00 |   691400.00 | 6461.682243 |
++-------------+-------------+-------------+-------------+
+
+ Write a query to get the number of employees with the same job.
+ mysql> select JOB_ID,count(*) from employees group by JOB_ID;
++------------+----------+
+| JOB_ID     | count(*) |
++------------+----------+
+| AC_ACCOUNT |        1 |
+| AC_MGR     |        1 |
+| AD_ASST    |        1 |
+| AD_PRES    |        1 |
+
+Write a query to get the difference between the highest and lowest salaries
+mysql> select max(SALARY)-min(SALARY) from employees;
++-------------------------+
+| max(SALARY)-min(SALARY) |
++-------------------------+
+|                21900.00 |
++-------------------------+
+
+ Write a query to find the manager ID and the salary of the lowest-paid employee for that manager.
+ mysql> select MANAGER_ID,min(SALARY) as 'MINIMUM SALARY' from employees where MANAGER_ID is not null group by MANAGER_ID order by min(SALARY) DESC;
++------------+----------------+
+| MANAGER_ID | MINIMUM SALARY |
++------------+----------------+
+|          0 |       24000.00 |
+|        102 |        9000.00 |
+|        205 |        8300.00 |
+|        145 |        7000.00 |
+|        146 |        7000.00 |
+|        108 |        6900.00 |
+|        147 |        6200.00 |
+|        149 |        6200.00 |
+
+ displays the department id, number of employees of those groups that have more than 2 employees.
+ mysql> select DEPARTMENT_ID,count(*) as 'employees of Department' from employees group by DEPARTMENT_ID having count(*)>2;
++---------------+-------------------------+
+| DEPARTMENT_ID | employees of Department |
++---------------+-------------------------+
+|            30 |                       6 |
+|            50 |                      45 |
+|            60 |                       5 |
+|            80 |                      34 |
+|            90 |                       3 |
+|           100 |                       6 |
++---------------+-------------------------+
