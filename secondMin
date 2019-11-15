@@ -1,0 +1,19 @@
+  Arrays.sort(intArr);
+  System.out.println(intArr[1]);
+  
+  
+  
+  int[] intArr={121,35,787,989,2,6768,9,2365,567,8};
+        int min=intArr[0];
+        int smin=min;
+        for(int i=0;i<intArr.length;i++){
+            int temp=intArr[i];
+            if(temp<min){
+               min=temp;
+            }
+            if(min<temp && smin>temp  ){
+                smin=temp;
+            }
+        }
+        System.out.println(min);
+        System.out.println(smin);
