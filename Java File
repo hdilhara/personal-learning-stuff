@@ -1,0 +1,30 @@
+ File file = new File(".././jjjjjjjjjjjjjjjjjjj/kkkkkkkkkkkkkk");
+        System.out.println(file.getPath());
+        System.out.println(file.getAbsolutePath());
+        try {
+            System.out.println(file.getCanonicalPath());
+        } catch (IOException e) {
+            System.out.println(e.getStackTrace());
+        }
+        System.out.println(file.exists());
+        System.out.println(file.isDirectory());
+        System.out.println(file.isFile());
+
+        file.mkdirs();
+        file.exists();
+       file=new File(file.getPath()+"/java.txt");
+        System.out.println(file.getAbsolutePath());
+        try{file.createNewFile();}
+        catch (IOException e){
+            System.out.println(e);
+        }
+//        if(!file.exists() && !file.isDirectory()){
+//           try {
+//               file.createNewFile();
+//           }
+//           catch (IOException e){
+//               System.out.println(e);
+//           }
+//        }
+
+    }
