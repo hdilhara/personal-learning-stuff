@@ -1,0 +1,132 @@
+Employee class for serialize
+==============================================================================================
+public class Employee implements Serializable {
+    private static final long serialVersionUID =1L;
+
+    private String serializeEmpName;
+    private transient int nonSerializeSalary=100;
+    private transient String company= "virtusa";
+    private final int age=25;
+ static String country="Sri Lanka";
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getSerializeEmpName() {
+        return serializeEmpName;
+    }
+
+    public void setSerializeEmpName(String serializeEmpName) {
+        this.serializeEmpName = serializeEmpName;
+    }
+
+    public int getNonSerializeSalary() {
+        return nonSerializeSalary;
+    }
+
+    public void setNonSerializeSalary(int nonSerializeSalary) {
+        this.nonSerializeSalary = nonSerializeSalary;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public static String getCountry() {
+        return country;
+    }
+
+    public static void setCountry(String country) {
+        Employee.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "UID=" +serialVersionUID+
+                ",serializeEmpName='" + serializeEmpName + '\'' +
+                ", nonSerializeSalary=" + nonSerializeSalary +
+                ", company='" + company + '\'' +
+                ", age=" + age +
+                ", country=" +country+
+                '}';
+    }
+}
+==================================================================================================================
+===> Seriling 
+package serializationINjava;
+
+import java.io.*;
+
+public class Serializationex {
+
+    public static void main(String[] args) {
+        String path="C:\\Users\\DILHARA\\Desktop\\serialized\\";
+        File file=new File(path);
+        if(!file.exists()){
+            file.mkdir();
+        }
+        file=new File(path+"serializeObj.txt");
+        try {
+            file.createNewFile();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
+        Employee emp=new Employee();
+        emp.setSerializeEmpName("Hettiarachchige Thilina Dilhara");
+        emp.setNonSerializeSalary(43000);
+        emp.setCompany("pearson");
+        emp.country="NewZeeland";
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(emp);
+            oos.close();
+            fos.close();
+
+        }
+        catch (FileNotFoundException fe){
+            System.out.println(fe);
+        }
+        catch (IOException ioe){
+            System.out.println(ioe);
+        }
+    }
+}
+=====================================================================================================
+====> DeSerializing
+public class deSerialising {
+    public static void main(String[] args) {
+        String path="C:\\Users\\DILHARA\\Desktop\\serialized\\serializeObj.txt";
+        File file=new File(path);
+
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Employee emp=(Employee)ois.readObject();
+            System.out.println(emp);
+        }
+        catch(FileNotFoundException fnfe){
+            System.out.println(fnfe);
+        }
+        catch (IOException ioe){
+            System.out.println(ioe);
+        }
+        catch (ClassNotFoundException cnfe){
+            System.out.println(cnfe);
+        }
+
+    }
+}
